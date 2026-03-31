@@ -1,74 +1,56 @@
-# 7a) Implementation of go-back-n protocol-Sliding Window
-Implementation of Go-Back-N Protocol – Sliding Window
+# EXPT.NO-7-IMPLEMENTATION-OF-GO-BACK-N-PROTOCOL-SLIDING-WINDOW
+# AIM
+To write and execute a program for Go-Back-N protocol.
+# EQUIPMENTS REQUIRED
+Personal Computer Turbo C Compiler
+# PROCEDURE
+1.	Connect two computers in Wired/Wireless LAN.
+2.	Make sure that two computers are in one network and could able to ping each other.
+3.	In the codeblocker open new c file and type the program.
+4.	In the menu choose->Project->Properties->Project Build options->Linker settings->Add netproto and pthread.
+5.	Execute the program in both server and client.
+6.	Enter the IP address of the remote machine, port address of both local & remote machine and error rate.
+7.	Choose the file and verify the go back protocol operation.
 
-🎯 Aim
-
-To write and execute a program for the Go-Back-N protocol using the sliding window technique.
-
-🛠️ Equipments Required
-
-• 	Personal Computer
-
-• 	Turbo C Compiler
-
-📋 Procedure
-1. 	Connect two computers in a Wired/Wireless LAN.
-2. 	Ensure both machines are on the same network and can ping each other.
-3. 	Open a new C file in Code::Blocks or any C IDE and type the program.
-4. 	Navigate to:
-Project -> Properties -> Project Build Options -> Linker Settings
-Add: netproto and pthread
-5. 	Execute the program on both server and client machines.
-6. 	Enter:
-• 	IP address of the remote machine
-• 	Port address of both local and remote machines
-• 	Error rate
-7. 	Choose the file and verify the Go-Back-N protocol operation.
-
-💻 Program
-
+# PROGRAM
+```
 #include <stdio.h>
-
-#define window_size 4  // Assume 7 frames of data are to be sent using Go-Back-N ARQ
-
-void main() {
-
-    int i, window_start = 1, ack;
-    
-    int n;
-
-    printf("SLIDING WINDOW PROTOCOL\n");
-    scanf("%d", &n);
-    printf("GO BACK N ARQ\n");
-    printf("Enter the number of frames: %d\n", n);
-
-    char frame[n + 1][10];
-
-    for (i = 1; i <= n; i++) {
-        printf("Content for frame %d: ", i);
-        scanf("%s", frame[i]);
-    }
-
-    while (window_start <= n) {
-        printf("\nSending frames:\n");
-        scanf("%d", &ack);
-        printf("Enter frame number with no ACKs: %d\n", ack);
-
-        if (ack == 0) {
-            printf("No ACK received, moving window forward\n");
-            window_start += window_size;
-        } else {
-            printf("No Acknowledgement for frame %d...\n", ack);
-            printf("Resending frames starting from frame %d\n", ack);
-            window_start = ack;
-        }
-    }
-
-    printf("\nAll frames sent successfully.\n");
+/* Assume 7 frames of data are to sent using GO BACK N ARQW*/ #define window_size 4
+void main()
+{
+int i,window_start = 1,ack; int n;
+printf("SLIDIDNG WINDOW PROTOCOL\n");
+char frame[n+1][10]; scanf("%d",&n);
+printf("GO BACK N ARQ\n"); printf("Enter the no of frames:%d\n",n); for(i=1;i<=n;i++)
+{
+printf("Content for frame %d :",i); scanf("%s",frame[i]);
 }
-🖥️ Sample Output
-<img width="1210" height="984" alt="code block 1" src="https://github.com/user-attachments/assets/e8e4b6d8-7bb3-454e-8e02-6349c08a432a" />
+while(window_start<=n)
+{
+printf("\nSending frames:\n"); scanf("%d",&ack);
+printf("Enter frame number with no acks :%d",ack); if(ack == 0)
+{
+printf("Enter frame number with no ACK forward\n"); window_start += window_size;
+ 
+}
+else
+{
+printf("No Acknowlegement for frame %d... \n",ack); printf("Resending frames starting from frame %d\n",ack); window_start = ack;
+}
+}
+printf("\n All frames sent successfully.\n");
+}
+```
+# OUTPUT
+<img width="1920" height="1080" alt="212222060192_SW" src="https://github.com/user-attachments/assets/ae997499-a752-4cba-bbbd-cd90aa30671e" />
 
-✅ Result
 
-Thus, the Go-Back-N protocol using the sliding window technique was successfully implemented and verified.
+ 
+
+
+
+
+# RESULT: 
+Thus the Go-Back-N protocol-Sliding Window was implemented and the output is verified successfully.
+
+
